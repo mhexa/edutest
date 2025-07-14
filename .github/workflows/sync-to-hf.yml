@@ -2,8 +2,8 @@ name: Sync to Hugging Face
 
 on:
   push:
-    branches: [main]          # Or your branch name
-  workflow_dispatch: {}       # Allows manual trigger
+    branches: [main]         # Change if your main branch is named differently
+  workflow_dispatch: {}
 
 jobs:
   sync:
