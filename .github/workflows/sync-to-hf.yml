@@ -23,6 +23,6 @@ jobs:
 
       - name: Push to Hugging Face
         run: |
-          git remote add hf https://oauth2:${{ secrets.HFedutest }}@huggingface.co/mhexa/edutest.git || true
+          git remote add hf https://oauth2:${{ secrets.HFEDUTEST }}@huggingface.co/mhexa/edutest.git || true
           git push hf main --force-with-lease
           git push hf --tags --force-with-lease
