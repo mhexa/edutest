@@ -1,0 +1,28 @@
+name: Sync to Hugging Face
+
+on:
+  push:
+    branches: [main]          # Or your branch name
+  workflow_dispatch: {}       # Allows manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository (with full history + LFS)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Push to Hugging Face
+        run: |
+          git remote add hf https://oauth2:${{ secrets.HFedutest }}@huggingface.co/mhexa/edutest.git || true
+          git push hf main --force-with-lease
+          git push hf --tags --force-with-lease
