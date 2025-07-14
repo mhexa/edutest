@@ -1,3 +1,14 @@
+---
+title: Edutest
+emoji: 📈
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: 5.36.2
+app_file: app.py
+pinned: false
+license: apache-2.0
+---
 # React
 
 A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
